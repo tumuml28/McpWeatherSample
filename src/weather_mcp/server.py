@@ -1,6 +1,8 @@
-"""MCP weather server exposing NWS forecast and alert tools over stdio."""
+"""MCP weather server exposing NWS forecast and alert tools."""
 
 from __future__ import annotations
+
+import argparse
 
 from mcp.server.fastmcp import FastMCP
 
@@ -36,8 +38,21 @@ async def get_alerts(state: str) -> str:
         return f"Failed to fetch alerts: {exc}"
 
 
-def main() -> None:
-    mcp.run(transport="stdio")
+def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="NWS weather MCP server")
+    parser.add_argument(
+        "--transport",
+        choices=("stdio", "http"),
+        default="stdio",
+        help="MCP transport (default: stdio). Use http for streamable HTTP on :8000/mcp.",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> None:
+    args = _parse_args(argv)
+    transport = "streamable-http" if args.transport == "http" else "stdio"
+    mcp.run(transport=transport)
 
 
 if __name__ == "__main__":
