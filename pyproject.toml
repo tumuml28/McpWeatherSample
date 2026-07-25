@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "weather-mcp"
+version = "0.1.0"
+description = "MCP server and demo client for National Weather Service (api.weather.gov)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.8,<2",
+    "httpx>=0.27",
+    "truststore>=0.9",
+]
+
+[project.scripts]
+weather-mcp-server = "weather_mcp.server:main"
+weather-mcp-demo = "weather_mcp_client.demo_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

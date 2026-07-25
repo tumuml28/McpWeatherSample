@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "nws-weather": {
+      "command": "C:\\Work\\Projects\\McpWeatherSample\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "weather_mcp.server"],
+      "cwd": "C:\\Work\\Projects\\McpWeatherSample"
+    }
+  }
+}
