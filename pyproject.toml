@@ -16,7 +16,7 @@ dependencies = [
 
 [project.scripts]
 weather-mcp-server = "weather_mcp.server:main"
-weather-mcp-demo = "weather_mcp_client.demo_cli:main"
+weather-mcp-client = "weather_mcp_cli.client:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

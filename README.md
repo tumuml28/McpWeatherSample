@@ -24,8 +24,8 @@ pip install -e .
 Spawns the MCP server over stdio and lets you call tools directly:
 
 ```powershell
-weather-mcp-demo
-# or: python -m weather_mcp_client.demo_cli
+weather-mcp-cli
+# or: python -m weather_mcp_cli.client
 ```
 
 Example session:
